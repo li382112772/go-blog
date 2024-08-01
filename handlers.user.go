@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"gopkg.in/gin-gonic/gin.v1"
+	"github.com/gin-gonic/gin" // Updated import path
 )
 
 func registerUser(c *gin.Context) {
@@ -13,5 +13,7 @@ func registerUser(c *gin.Context) {
 
 	if _, err := createUser(name, email, password); err == nil {
 		c.Redirect(http.StatusMovedPermanently, "/")
+	} else {
+		c.AbortWithError(http.StatusInternalServerError, err) // Handle error if user creation fails
 	}
 }

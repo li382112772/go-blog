@@ -1,13 +1,15 @@
 # Installation
 
-* Install gin package [gin](https://github.com/gin-gonic/gin#start-using-it)
-* Clone Project
-
 ```bash
-$ go install
-
-run server
-$ go-blog
+$ go mod tidy
+$ go build
 ```
 
-* Open in browser [localhost:8080](http://localhost:8080)
+# Run server
+
+```bash
+$ ./<binary-name>
+```
+
+### Open in browser [localhost:8080](http://localhost:8080)
+```

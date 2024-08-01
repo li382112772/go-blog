@@ -1,6 +1,6 @@
 package main
 
-import "gopkg.in/gin-gonic/gin.v1"
+import "github.com/gin-gonic/gin" // Updated import path
 
 func initializeRoutes() {
 	router.Static("uploads/", "./public/uploads")

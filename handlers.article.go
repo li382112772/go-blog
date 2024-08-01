@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"gopkg.in/gin-gonic/gin.v1"
+	"github.com/gin-gonic/gin" // Updated import path
 )
 
 func showIndexPage(c *gin.Context) {
@@ -40,5 +40,7 @@ func createArticle(c *gin.Context) {
 	if a, err := createNewArticle(title, content); err == nil {
 		articleID := strconv.Itoa(a.ID)
 		c.Redirect(http.StatusMovedPermanently, "/articles/"+articleID)
+	} else {
+		c.AbortWithError(http.StatusInternalServerError, err) // Handle error if article creation fails
 	}
 }
